@@ -1,0 +1,17 @@
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.AssemblyInfoInputs.cache
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.AssemblyInfo.cs
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.csproj.CoreCompileInputs.cache
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/bin/Debug/net8.0/SynapseHealthTechnicalAssessment
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/bin/Debug/net8.0/SynapseHealthTechnicalAssessment.deps.json
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/bin/Debug/net8.0/SynapseHealthTechnicalAssessment.runtimeconfig.json
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/bin/Debug/net8.0/SynapseHealthTechnicalAssessment.dll
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/bin/Debug/net8.0/SynapseHealthTechnicalAssessment.pdb
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.csproj.AssemblyReference.cache
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseH.AF1FA068.Up2Date
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.dll
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/refint/SynapseHealthTechnicalAssessment.dll
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.pdb
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/SynapseHealthTechnicalAssessment.genruntimeconfig.cache
+/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/obj/Debug/net8.0/ref/SynapseHealthTechnicalAssessment.dll
