@@ -2,9 +2,9 @@ using Serilog;
 
 public static class LoggerSetup
 {
-    public static ILogger ConfigureLogger()
+    public static void ConfigureLogger()
     {
-        return new LoggerConfiguration()
+        Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
             .CreateLogger();
     }

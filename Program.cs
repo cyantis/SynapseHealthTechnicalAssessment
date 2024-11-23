@@ -15,10 +15,7 @@ namespace Synapse.OrdersExample
     {
         static int Main(string[] args)
         {
-            using var log = new LoggerConfiguration()
-                .WriteTo.Console()
-                .CreateLogger();
-            Log.Logger = log;
+            LoggerSetup.ConfigureLogger();
 
             Log.Information("Start of App");
 
