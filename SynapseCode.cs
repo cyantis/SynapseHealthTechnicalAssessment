@@ -2,6 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using Serilog;
 
 namespace Synapse.OrdersExample
 {
@@ -14,7 +15,12 @@ namespace Synapse.OrdersExample
     {
         static int Main(string[] args)
         {
-            Console.WriteLine("Start of App");
+            using var log = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
+            Log.Logger = log;
+
+            Log.Information("Start of App");
 
             var medicalEquipmentOrders = FetchMedicalEquipmentOrders().GetAwaiter().GetResult();
             foreach (var order in medicalEquipmentOrders)
@@ -23,8 +29,8 @@ namespace Synapse.OrdersExample
                 SendAlertAndUpdateOrder(updatedOrder).GetAwaiter().GetResult();
             }
 
-            Console.WriteLine("Results sent to relevant APIs.");
-			return 0;
+            Log.Information("Results sent to relevant APIs.");
+            return 0;
         }
 
         static async Task<JObject[]> FetchMedicalEquipmentOrders()
@@ -40,7 +46,7 @@ namespace Synapse.OrdersExample
                 }
                 else
                 {
-                    Console.WriteLine("Failed to fetch orders from API.");
+                    Log.Information("Failed to fetch orders from API.");
                     return new JObject[0];
                 }
             }
@@ -85,11 +91,11 @@ namespace Synapse.OrdersExample
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Alert sent for delivered item: {item["Description"]}");
+                    Log.Information($"Alert sent for delivered item: {item["Description"]}");
                 }
                 else
                 {
-                    Console.WriteLine($"Failed to send alert for delivered item: {item["Description"]}");
+                    Log.Information($"Failed to send alert for delivered item: {item["Description"]}");
                 }
             }
         }
@@ -109,11 +115,11 @@ namespace Synapse.OrdersExample
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Updated order sent for processing: OrderId {order["OrderId"]}");
+                    Log.Information($"Updated order sent for processing: OrderId {order["OrderId"]}");
                 }
                 else
                 {
-                    Console.WriteLine($"Failed to send updated order for processing: OrderId {order["OrderId"]}");
+                    Log.Information($"Failed to send updated order for processing: OrderId {order["OrderId"]}");
                 }
             }
         }
