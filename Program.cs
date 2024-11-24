@@ -19,7 +19,7 @@ namespace Synapse.OrdersExample
 
             Log.Information("Start of App");
 
-            var orderService = new OrderService(new OrdersApiClient(), new AlertsApiClient());
+            var orderService = new OrdersService(new OrdersApiClient(), new AlertsApiClient());
             await orderService.ProcessOrdersAsync();
 
             Log.Information("Results sent to relevant APIs.");

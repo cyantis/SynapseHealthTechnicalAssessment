@@ -1,9 +1,9 @@
-public class OrderService
+public class OrdersService
 {
     private readonly IOrdersApiClient _ordersApiClient;
     private readonly IAlertsApiClient _alertsApiClient;
 
-    public OrderService(IOrdersApiClient ordersApiClient, IAlertsApiClient alertsApiClient)
+    public OrdersService(IOrdersApiClient ordersApiClient, IAlertsApiClient alertsApiClient)
     {
         _ordersApiClient = ordersApiClient;
         _alertsApiClient = alertsApiClient;
