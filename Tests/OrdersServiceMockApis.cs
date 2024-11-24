@@ -1,6 +1,6 @@
 using Moq;
 
-public class OrdersServiceTests
+public class OrdersServiceMockApis
 {
     public async Task ProcessOrders_ShouldSendAlertForDeliveredItems()
     {
