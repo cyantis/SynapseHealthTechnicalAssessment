@@ -1,3 +1,4 @@
+using Synapse.OrdersExample;
 using Moq;
 
 public class OrdersServiceTests
@@ -12,6 +13,7 @@ public class OrdersServiceTests
         _mockAlertsApiClient = new Mock<IAlertsApiClient>();
         _ordersService = new OrdersService(_mockOrdersApiClient.Object, _mockAlertsApiClient.Object);
     }
+    [Test]
     public async Task ProcessOrdersAsync_SendsAlert_WhenItemIsDelivered()
     {
         var order = new Order

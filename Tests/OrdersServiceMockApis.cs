@@ -2,6 +2,7 @@ using Moq;
 
 public class OrdersServiceMockApis
 {
+    [Test]
     public async Task ProcessOrders_ShouldSendAlertForDeliveredItems()
     {
         var ordersApiClientMock = new Mock<IOrdersApiClient>();
