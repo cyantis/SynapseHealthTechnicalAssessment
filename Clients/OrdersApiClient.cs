@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using Serilog;
 
 public class OrdersApiClient : IOrdersApiClient
 {
@@ -11,27 +12,36 @@ public class OrdersApiClient : IOrdersApiClient
 
     public async Task<IEnumerable<Order>> FetchOrdersAsync()
     {
-        var response = await _httpClient.GetAsync("https://api.example.com/orders");
+        Log.Information("Fetching orders from API...");
 
-        if (response.IsSuccessStatusCode)
+        try
         {
+            var response = await _httpClient.GetAsync("https://api.example.com/orders");
             var ordersData = await response.Content.ReadAsStringAsync();
 
-            // Use null-conditional operator (?.) to ensure no null reference exception
             return JArray.Parse(ordersData)?.ToObject<List<Order>>() ?? new List<Order>();
         }
-        else
+        catch (HttpRequestException ex)
         {
-            // Handle error (log, throw, etc.)
+            Log.Error($"Failed to fetch orders from API: {ex.Message}");
             return [];  // Return an empty list if fetch fails
         }
     }
 
     public async Task UpdateOrderAsync(Order order)
     {
+        Log.Information("Updating order...");
         string updateApiUrl = "https://update-api.com/update";
         var content = new StringContent(Newtonsoft.Json.Linq.JObject.FromObject(order).ToString(), System.Text.Encoding.UTF8, "application/json");
-        var response = await _httpClient.PostAsync(updateApiUrl, content);
-        response.EnsureSuccessStatusCode();
+        try
+        {
+            var response = await _httpClient.PostAsync(updateApiUrl, content);
+            response.EnsureSuccessStatusCode();
+            Log.Information($"Updated order sent for processing: OrderId {order.OrderId}");
+        }
+        catch (HttpRequestException ex)
+        {
+            Log.Error($"Failed to send updated order for processing: OrderId {order.OrderId} {ex.Message}");
+        }
     }
 }
