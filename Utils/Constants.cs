@@ -22,5 +22,6 @@ public static class Constants
     public static class Statuses
     {
         public const string Delivered = "Delivered";
+        public const string Pending = "Pending";
     }
 }
