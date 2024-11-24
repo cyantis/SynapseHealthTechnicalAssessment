@@ -12,15 +12,13 @@ public class OrderService
     public async Task ProcessOrdersAsync()
     {
         var orders = await _ordersApiClient.FetchOrdersAsync();
-        foreach (var order in orders)
+
+        foreach (var (item, order) in orders.SelectMany(order => order.Items, (order, item) => (item, order)))
         {
-            foreach (var item in order.Items)
+            if (item.Status == "Delivered")
             {
-                if (item.IsDelivered)
-                {
-                    await _alertsApiClient.SendAlertAsync(item, order.OrderId);
-                    item.IncrementDeliveryNotification();
-                }
+                await _alertsApiClient.SendAlertAsync(item, order.OrderId);
+                item.IncrementDeliveryNotification();
             }
             await _ordersApiClient.UpdateOrderAsync(order);
         }
