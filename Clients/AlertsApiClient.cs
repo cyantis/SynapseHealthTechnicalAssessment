@@ -12,23 +12,22 @@ public class AlertsApiClient : IAlertsApiClient
 
     public async Task SendAlertAsync(Item item, string orderId)
     {
-        string alertApiUrl = "https://alert-api.com/alerts";
         var alertData = new
         {
-            Message = $"Alert for delivered item: Order {orderId}, Item: {item.Description}, Delivery Notifications: {item.DeliveryNotification}"
+            Message = $"{Constants.Messages.DeliveredItemAlert} Order {orderId}, Item: {item.Description}, Delivery Notifications: {item.DeliveryNotification}"
         };
         var content = new StringContent(JObject.FromObject(alertData).ToString(), System.Text.Encoding.UTF8, "application/json");
 
         try
         {
-            var response = await _httpClient.PostAsync(alertApiUrl, content);
-            response.EnsureSuccessStatusCode();  // This throws an exception if the status code is not 2xx
+            var response = await _httpClient.PostAsync(Constants.ApiUrls.AlertApiUrl, content);
+            response.EnsureSuccessStatusCode();
 
-            Log.Information($"Alert sent for delivered item: {item.Description}");
+            Log.Information($"{Constants.Messages.DeliveredItemAlertSent} {item.Description}");
         }
         catch (HttpRequestException ex)
         {
-            Log.Error($"Failed to send alert for delivered item: {item.Description} {ex.Message}");
+            Log.Error($"{Constants.Messages.DeliveredItemAlertFailed} {item.Description} {ex.Message}");
         }
     }
 }

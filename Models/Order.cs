@@ -10,7 +10,7 @@ public class Item
     public required string Status { get; set; }
     public int DeliveryNotification { get; set; }
 
-    public bool IsDelivered => Status.Equals("Delivered", StringComparison.OrdinalIgnoreCase);
+    public bool IsDelivered => Status.Equals(Constants.Statuses.Delivered, StringComparison.OrdinalIgnoreCase);
 
     public void IncrementDeliveryNotification()
     {

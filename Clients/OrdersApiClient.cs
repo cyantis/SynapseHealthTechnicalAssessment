@@ -12,36 +12,35 @@ public class OrdersApiClient : IOrdersApiClient
 
     public async Task<IEnumerable<Order>> FetchOrdersAsync()
     {
-        Log.Information("Fetching orders from API...");
+        Log.Information($"{Constants.Messages.FetchingOrders}");
 
         try
         {
-            var response = await _httpClient.GetAsync("https://api.example.com/orders");
+            var response = await _httpClient.GetAsync(Constants.ApiUrls.OrdersApiUrl);
             var ordersData = await response.Content.ReadAsStringAsync();
 
             return JArray.Parse(ordersData)?.ToObject<List<Order>>() ?? new List<Order>();
         }
         catch (HttpRequestException ex)
         {
-            Log.Error($"Failed to fetch orders from API: {ex.Message}");
-            return [];  // Return an empty list if fetch fails
+            Log.Error($"{Constants.Messages.FetchOrdersFailed} {ex.Message}");
+            return [];
         }
     }
 
     public async Task UpdateOrderAsync(Order order)
     {
-        Log.Information("Updating order...");
-        string updateApiUrl = "https://update-api.com/update";
+        Log.Information($"{Constants.Messages.UpdatingOrder}");
         var content = new StringContent(Newtonsoft.Json.Linq.JObject.FromObject(order).ToString(), System.Text.Encoding.UTF8, "application/json");
         try
         {
-            var response = await _httpClient.PostAsync(updateApiUrl, content);
+            var response = await _httpClient.PostAsync(Constants.ApiUrls.UpdateApiUrl, content);
             response.EnsureSuccessStatusCode();
-            Log.Information($"Updated order sent for processing: OrderId {order.OrderId}");
+            Log.Information($"{Constants.Messages.UpdatedOrderAlertSent} {order.OrderId}");
         }
         catch (HttpRequestException ex)
         {
-            Log.Error($"Failed to send updated order for processing: OrderId {order.OrderId} {ex.Message}");
+            Log.Error($"{Constants.Messages.UpdatedOrderAlertFailed} {order.OrderId} {ex.Message}");
         }
     }
 }

@@ -15,7 +15,7 @@ public class OrderService
 
         foreach (var (item, order) in orders.SelectMany(order => order.Items, (order, item) => (item, order)))
         {
-            if (item.Status == "Delivered")
+            if (item.Status == Constants.Statuses.Delivered)
             {
                 await _alertsApiClient.SendAlertAsync(item, order.OrderId);
                 item.IncrementDeliveryNotification();
