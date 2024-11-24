@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SynapseHealthTechnicalAssessment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+627e5b86af7454607c33d4730800deeca2f4e90a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8af0ba4cf940c2644973858724a6e40ef1755da")]
 [assembly: System.Reflection.AssemblyProductAttribute("SynapseHealthTechnicalAssessment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SynapseHealthTechnicalAssessment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
