@@ -101,8 +101,6 @@
 /Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/bin/Debug/net8.0/SynapseHealthTechnicalAssessment.pdb
 /Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.csproj.AssemblyReference.cache
 /Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.GeneratedMSBuildEditorConfig.editorconfig
-/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.AssemblyInfoInputs.cache
-/Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.AssemblyInfo.cs
 /Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.csproj.CoreCompileInputs.cache
 /Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.sourcelink.json
 /Users/cyantis/Desktop/SynapseHealthTechnicalAssessment/Tests/obj/Debug/net8.0/Tests.csproj.Up2Date
