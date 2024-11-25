@@ -19,8 +19,8 @@ public class OrdersService
             {
                 await _alertsApiClient.SendAlertAsync(item, order.OrderId);
                 item.IncrementDeliveryNotification();
+                await _ordersApiClient.UpdateOrderAsync(order);
             }
-            await _ordersApiClient.UpdateOrderAsync(order);
         }
     }
 }

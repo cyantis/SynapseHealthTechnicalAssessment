@@ -21,7 +21,8 @@ public class OrdersServiceTests
             OrderId = "123",
             Items = new List<Item>
             {
-                new Item { Status = "Delivered", Description = "Item 1" }
+                new Item { Status = Constants.Statuses.Delivered, Description = "Item 1" },
+                new Item { Status = Constants.Statuses.Pending, Description = "Item 1" }
             }
         };
 
