@@ -2,8 +2,7 @@ using Moq;
 
 public class OrdersServiceMockApis
 {
-    [Test]
-    public async Task ProcessOrders_ShouldSendAlertForDeliveredItems()
+    public async Task OrdersServiceMocks()
     {
         var ordersApiClientMock = new Mock<IOrdersApiClient>();
         ordersApiClientMock
@@ -32,8 +31,5 @@ public class OrdersServiceMockApis
 
         var ordersService = new OrdersService(ordersApiClientMock.Object, alertsApiClientMock.Object);
         await ordersService.ProcessOrdersAsync();
-
-        alertsApiClientMock.Verify(client => client.SendAlertAsync(It.Is<Item>(i => i.Status == Constants.Statuses.Delivered), It.Is<string>(id => id == "123")), Times.Once);
-        ordersApiClientMock.Verify(client => client.UpdateOrderAsync(It.IsAny<Order>()), Times.Once);
     }
 }

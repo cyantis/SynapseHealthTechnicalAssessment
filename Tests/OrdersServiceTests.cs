@@ -32,5 +32,7 @@ public class OrdersServiceTests
         await _ordersService.ProcessOrdersAsync();
 
         _mockAlertsApiClient.Verify(client => client.SendAlertAsync(It.IsAny<Item>(), It.IsAny<string>()), Times.Once);
+
+        _mockOrdersApiClient.Verify(client => client.UpdateOrderAsync(It.IsAny<Order>()), Times.Once);
     }
 }
